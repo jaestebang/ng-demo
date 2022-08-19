@@ -1,0 +1,35 @@
+<div class="search" *ngIf="!client">
+  <h6 class="card-subtitle mb-2 text-muted">Search client</h6>
+
+  <!--Form Group-->
+  <form [formGroup]="form" (ngSubmit)="search($event)">
+
+    <!--Div Search-->
+    <div class="mb-3">
+
+      <div class="form-floating mb-3">
+        <label for="typedni" class="form-label">Type DNI</label>
+        <select id="typedni" class="form-select" aria-label="Type of DNI" formControlName="typedni"
+          [ngClass]="form.get('typedni')!.errors  ? 'is-invalid': 'is-valid'">
+          <option value="" selected disabled></option>
+          <option value="C">Cédula de ciudanía</option>
+          <option value="T">Tarjeta de identidad</option>
+        </select>
+      </div>
+
+      <div class="form-row form-floating mb-3">
+        <label for="dni" class="form-label">DNI</label>
+        <input id="dni" type="number" mdbValidate mdbInput class="form-control" formControlName="dni"
+          [ngClass]="form.get('dni')!.errors  ? 'is-invalid': 'is-valid'">
+      </div>
+
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="httpErrorResponse">
+      {{ httpErrorResponse.status }}:
+      {{ (httpErrorResponse.status == 404) ? 'Not Data Found' : httpErrorResponse.message }}
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Search</button>
+  </form>
+</div>
+
+<app-detail-client (emmitBack)="onBack()" [client]="client" *ngIf="client"></app-detail-client>

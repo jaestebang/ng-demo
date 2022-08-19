@@ -1,0 +1,37 @@
+<div class="detail">
+    <h6 class="card-subtitle mb-2 text-muted">Detail client</h6>
+    <div class="mb-3">
+
+        <div>
+            <label for="firstName" class="form-label">First Name</label>
+            <input id="firstName" type="text" class="form-control" [value]="client.firstName">
+        </div>
+
+        <div>
+            <label for="secondName" class="form-label">Second Name</label>
+            <input id="secondName" type="text" class="form-control" [value]="client.secondName">
+        </div>
+
+        <div>
+            <label for="firstLastName" class="form-label">First Lastname</label>
+            <input id="firstLastName" type="text" class="form-control"  [value]="client.firstLastName">
+        </div>
+
+        <div>
+            <label for="secondLastName" class="form-label">Second Lastname</label>
+            <input id="secondLastName" type="text" class="form-control"  [value]="client.secondLastName">
+        </div>
+
+        <div>
+            <label for="city" class="form-label">City</label>
+            <input id="city" type="text" class="form-control"  [value]="client.city">
+        </div>
+
+        <div>
+            <label for="phone" class="form-label">Phone</label>
+            <input id="phone" type="text" class="form-control"  [value]="client.phone">
+        </div>         
+
+    </div>
+    <button (click)="onBack()" class="btn btn-primary">Back</button>
+</div>
